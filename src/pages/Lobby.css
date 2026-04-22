@@ -30,6 +30,48 @@
   letter-spacing: 1px;
 }
 
+/* Category tabs */
+.category-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.category-tab {
+  padding: 8px 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(184, 148, 60, 0.25);
+  background: rgba(184, 148, 60, 0.05);
+  color: #8a7a5a;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.5px;
+}
+.category-tab:hover {
+  background: rgba(184, 148, 60, 0.15);
+  color: #d4a94a;
+  border-color: rgba(184, 148, 60, 0.4);
+}
+.category-tab.active {
+  background: linear-gradient(135deg, #d4a94a, #b8943c);
+  color: #0a0a12;
+  border-color: #d4a94a;
+  box-shadow: 0 0 15px rgba(184, 148, 60, 0.3);
+}
+
+.game-type-badge {
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
 .game-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));

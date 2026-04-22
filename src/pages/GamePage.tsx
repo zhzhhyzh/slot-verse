@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect, useCallback, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { getGameById } from '../games/registry';
+import { getGameById, getSlotGameById } from '../games/registry';
 import { useSlotMachine } from '../hooks/useSlotMachine';
 import { useCredit } from '../context/CreditContext';
 import { SlotReel } from '../components/SlotReel';
@@ -9,7 +9,35 @@ import {
   playSpinStart, playReelStop, playWinSound, playNoWin,
   playClick, startMusic, playCoinSound,
 } from '../utils/soundManager';
+// Lazy-load non-slot game components
+import { BlackjackGame } from '../games/blackjack/BlackjackGame';
+import { BaccaratGame } from '../games/baccarat/BaccaratGame';
+import { ThreeCardPokerGame } from '../games/three-card-poker/ThreeCardPokerGame';
+import { VideoPokerGame } from '../games/video-poker/VideoPokerGame';
+import { VegasSolitaireGame } from '../games/vegas-solitaire/VegasSolitaireGame';
+import { RouletteGame } from '../games/roulette/RouletteGame';
+import { CrapsGame } from '../games/craps/CrapsGame';
+import { SicBoGame } from '../games/sic-bo/SicBoGame';
+import { CrashGame } from '../games/crash/CrashGame';
+import { KenoGame } from '../games/keno/KenoGame';
+import { ScratchCardGame } from '../games/scratch-cards/ScratchCardGame';
+import { PachinkoGame } from '../games/pachinko/PachinkoGame';
 import './GamePage.css';
+
+const GAME_COMPONENTS: Record<string, React.ComponentType<{ config: any }>> = {
+  blackjack: BlackjackGame,
+  baccarat: BaccaratGame,
+  'three-card-poker': ThreeCardPokerGame,
+  'video-poker': VideoPokerGame,
+  'vegas-solitaire': VegasSolitaireGame,
+  roulette: RouletteGame,
+  craps: CrapsGame,
+  'sic-bo': SicBoGame,
+  crash: CrashGame,
+  keno: KenoGame,
+  'scratch-card': ScratchCardGame,
+  pachinko: PachinkoGame,
+};
 
 export function GamePage() {
   const { gameId } = useParams<{ gameId: string }>();
@@ -25,10 +53,27 @@ export function GamePage() {
     );
   }
 
-  return <GamePlayInner config={config} />;
+  // Slot games use the existing SlotPlayInner
+  if (config.type === 'slot') {
+    const slotConfig = getSlotGameById(config.id)!;
+    return <SlotPlayInner config={slotConfig} />;
+  }
+
+  // All other game types dispatch to their specific component
+  const GameComponent = GAME_COMPONENTS[config.type];
+  if (GameComponent) {
+    return <GameComponent config={config} />;
+  }
+
+  return (
+    <div className="game-not-found">
+      <h2>Game type not supported yet</h2>
+      <button onClick={() => navigate('/')}>Back to Lobby</button>
+    </div>
+  );
 }
 
-function GamePlayInner({ config }: { config: import('../utils/types').SlotGameConfig }) {
+function SlotPlayInner({ config }: { config: import('../utils/types').SlotGameConfig }) {
   const { balance, placeBet, addWinnings } = useCredit();
   const { grid, spinState, lastResult, spin } = useSlotMachine(config);
   const MAX_BET = 20000;

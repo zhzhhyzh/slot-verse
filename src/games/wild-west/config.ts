@@ -6,6 +6,8 @@ export const wildWestConfig: SlotGameConfig = {
   id: 'wild-west',
   name: 'Wild West',
   description: 'Ride into the sunset! Sticky wilds stay for re-spins in this Western-themed adventure.',
+  type: 'slot',
+  category: 'slots',
   reels: 5,
   rows: 3,
   symbols: [

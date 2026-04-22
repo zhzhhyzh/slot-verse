@@ -6,6 +6,8 @@ export const neonRushConfig: SlotGameConfig = {
   id: 'neon-rush',
   name: 'Neon Rush',
   description: 'Enter the cyberpunk city! 5x4 grid with expanding wilds and multipliers up to 5x.',
+  type: 'slot',
+  category: 'slots',
   reels: 5,
   rows: 4,
   symbols: [

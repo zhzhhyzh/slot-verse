@@ -252,3 +252,109 @@ export function playWinSound(winAmount: number, betAmount: number): void {
     playSmallWin();
   }
 }
+
+// ─── Card Game Sounds ───
+
+/** Card deal — quick snap */
+export function playCardDeal(): void {
+  playNoise(0.06, 0.12);
+  playTone(2000, 0.04, 'square', 0.06, 0.01);
+}
+
+/** Card flip */
+export function playCardFlip(): void {
+  playTone(1500, 0.05, 'sine', 0.08);
+  playNoise(0.04, 0.06, 0.02);
+}
+
+/** Chip place */
+export function playChipPlace(): void {
+  playTone(800, 0.06, 'sine', 0.1);
+  playTone(1200, 0.04, 'sine', 0.06, 0.03);
+}
+
+// ─── Dice Sounds ───
+
+/** Dice roll — rattle */
+export function playDiceRoll(): void {
+  for (let i = 0; i < 6; i++) {
+    playTone(300 + Math.random() * 400, 0.05, 'square', 0.08, i * 0.05);
+    playNoise(0.04, 0.05, i * 0.05);
+  }
+}
+
+/** Dice land */
+export function playDiceLand(): void {
+  playTone(200, 0.1, 'triangle', 0.12);
+  playNoise(0.08, 0.08, 0.02);
+}
+
+// ─── Roulette Sounds ───
+
+/** Roulette wheel tick */
+export function playWheelTick(): void {
+  playTone(3000, 0.02, 'square', 0.04);
+}
+
+/** Ball drop */
+export function playBallDrop(): void {
+  playTone(600, 0.08, 'sine', 0.1);
+  playTone(400, 0.06, 'sine', 0.08, 0.04);
+  playTone(300, 0.1, 'triangle', 0.06, 0.08);
+}
+
+// ─── Crash / Aviator Sounds ───
+
+/** Crash rising — tension */
+export function playCrashRising(): void {
+  playTone(300, 0.2, 'sawtooth', 0.04);
+}
+
+/** Crash explosion */
+export function playCrashExplosion(): void {
+  playNoise(0.5, 0.2);
+  playTone(100, 0.4, 'sawtooth', 0.15);
+  playTone(60, 0.3, 'square', 0.1, 0.1);
+}
+
+/** Cash out success */
+export function playCashOut(): void {
+  playTone(800, 0.1, 'sine', 0.2);
+  playTone(1200, 0.15, 'sine', 0.2, 0.08);
+  playTone(1600, 0.2, 'sine', 0.15, 0.16);
+}
+
+// ─── Keno / Lottery Sounds ───
+
+/** Keno ball draw */
+export function playBallDraw(): void {
+  playTone(1000, 0.08, 'sine', 0.1);
+  playTone(1400, 0.06, 'sine', 0.08, 0.04);
+}
+
+/** Keno match hit */
+export function playKenoHit(): void {
+  playTone(880, 0.1, 'sine', 0.15);
+  playTone(1100, 0.08, 'triangle', 0.1, 0.05);
+}
+
+// ─── Scratch Card Sounds ───
+
+/** Scratch reveal */
+export function playScratchReveal(): void {
+  playNoise(0.08, 0.04);
+  playTone(2500 + Math.random() * 1000, 0.03, 'sine', 0.03);
+}
+
+// ─── Pachinko Sounds ───
+
+/** Pin bounce */
+export function playPinBounce(): void {
+  playTone(1500 + Math.random() * 1000, 0.03, 'sine', 0.05);
+}
+
+/** Pachinko slot land */
+export function playSlotLand(): void {
+  playTone(400, 0.1, 'triangle', 0.1);
+  playTone(600, 0.08, 'sine', 0.08, 0.05);
+}

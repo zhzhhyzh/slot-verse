@@ -6,6 +6,8 @@ export const treasureHuntConfig: SlotGameConfig = {
   id: 'treasure-hunt',
   name: 'Treasure Hunt',
   description: 'Set sail for pirate treasure! Wild symbols and free spins await brave adventurers.',
+  type: 'slot',
+  category: 'slots',
   reels: 5,
   rows: 3,
   symbols: [

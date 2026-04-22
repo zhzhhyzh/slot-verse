@@ -4,6 +4,8 @@ export const classicFruitsConfig: SlotGameConfig = {
   id: 'classic-fruits',
   name: 'Classic Fruits',
   description: 'A retro 3-reel fruit machine with simple paylines. No frills, just classic fun!',
+  type: 'slot',
+  category: 'slots',
   reels: 3,
   rows: 3,
   symbols: [

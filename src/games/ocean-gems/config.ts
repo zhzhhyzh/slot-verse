@@ -6,6 +6,8 @@ export const oceanGemsConfig: SlotGameConfig = {
   id: 'ocean-gems',
   name: 'Ocean Gems',
   description: 'Dive deep into the ocean for hidden gems! Scatter bonus triggers a pick-a-prize game.',
+  type: 'slot',
+  category: 'slots',
   reels: 5,
   rows: 3,
   symbols: [

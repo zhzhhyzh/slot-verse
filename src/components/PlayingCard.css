@@ -1,0 +1,90 @@
+.playing-card {
+  width: 80px;
+  height: 112px;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #f5f0e8, #e8e0d0);
+  border: 1px solid rgba(184, 148, 60, 0.3);
+  position: relative;
+  cursor: default;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  user-select: none;
+  flex-shrink: 0;
+}
+.playing-card.small {
+  width: 56px;
+  height: 78px;
+}
+.playing-card.selected {
+  transform: translateY(-12px);
+  box-shadow: 0 8px 20px rgba(184, 148, 60, 0.4);
+  border-color: #d4a94a;
+}
+.playing-card[onClick] {
+  cursor: pointer;
+}
+
+/* Face-down card */
+.playing-card.face-down {
+  background: linear-gradient(145deg, #1a1930, #12111a);
+  border-color: rgba(184, 148, 60, 0.4);
+}
+.card-back-pattern {
+  position: absolute;
+  inset: 4px;
+  border-radius: 4px;
+  background:
+    repeating-linear-gradient(45deg, rgba(184, 148, 60, 0.15) 0px, rgba(184, 148, 60, 0.15) 1px, transparent 1px, transparent 6px),
+    repeating-linear-gradient(-45deg, rgba(184, 148, 60, 0.15) 0px, rgba(184, 148, 60, 0.15) 1px, transparent 1px, transparent 6px);
+  border: 1px solid rgba(184, 148, 60, 0.2);
+}
+
+/* Card layout */
+.card-corner {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+}
+.card-corner.top-left {
+  top: 4px;
+  left: 6px;
+}
+.card-corner.bottom-right {
+  bottom: 4px;
+  right: 6px;
+  transform: rotate(180deg);
+}
+.card-rank {
+  font-size: 14px;
+  font-weight: 800;
+}
+.card-suit-small {
+  font-size: 10px;
+}
+.card-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.card-suit-large {
+  font-size: 32px;
+}
+
+/* Small card overrides */
+.playing-card.small .card-rank { font-size: 11px; }
+.playing-card.small .card-suit-small { font-size: 8px; }
+.playing-card.small .card-suit-large { font-size: 22px; }
+.playing-card.small .card-corner.top-left { top: 2px; left: 4px; }
+.playing-card.small .card-corner.bottom-right { bottom: 2px; right: 4px; }
+
+/* Deal animation */
+@keyframes dealCard {
+  from { opacity: 0; transform: translateY(-40px) rotate(-10deg) scale(0.5); }
+  to { opacity: 1; transform: translateY(0) rotate(0deg) scale(1); }
+}
+.playing-card.deal-anim {
+  animation: dealCard 0.3s ease forwards;
+}

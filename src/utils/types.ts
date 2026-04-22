@@ -1,3 +1,5 @@
+import type { BaseGameConfig } from './gameTypes';
+
 export interface SlotSymbol {
   id: string;
   name: string;
@@ -19,21 +21,16 @@ export interface PayoutEntry {
   multiplier: number; // payout = bet * multiplier
 }
 
-export interface SlotGameConfig {
-  id: string;
-  name: string;
-  description: string;
+export interface SlotGameConfig extends BaseGameConfig {
+  type: 'slot';
+  category: 'slots';
   reels: number;
   rows: number;
   symbols: SlotSymbol[];
   paylines: PaylineDefinition[];
   payoutTable: PayoutEntry[];
-  minBet: number;
-  maxBet: number;
   betStep: number;
   features: GameFeature[];
-  thumbnail: string; // emoji or SVG
-  themeColor: string;
   reelWeights?: Record<string, number>; // symbolId -> weight for probability
 }
 
