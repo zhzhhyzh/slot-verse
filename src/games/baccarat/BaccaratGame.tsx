@@ -3,7 +3,7 @@ import type { BaseGameConfig } from '../../utils/gameTypes';
 import { useCredit } from '../../context/CreditContext';
 import { PlayingCard } from '../../components/PlayingCard';
 import { Shoe, type Card, cardValue } from '../../utils/cardDeck';
-import { playCardDeal, playSmallWin, playMediumWin, playNoWin, playClick } from '../../utils/soundManager';
+import { playCardDeal, playMediumWin, playNoWin, playClick } from '../../utils/soundManager';
 import '../../styles/casino-shared.css';
 
 type BetType = 'player' | 'banker' | 'tie' | null;

@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import type { BaseGameConfig } from '../../utils/gameTypes';
 import { useCredit } from '../../context/CreditContext';
-import { playDiceRoll, playDiceLand, playSmallWin, playMediumWin, playBigWin, playNoWin, playClick, playChipPlace } from '../../utils/soundManager';
+import { playDiceRoll, playDiceLand, playSmallWin, playMediumWin, playBigWin, playNoWin, playChipPlace } from '../../utils/soundManager';
 import '../../styles/casino-shared.css';
 
 type Phase = 'betting' | 'rolling' | 'result';

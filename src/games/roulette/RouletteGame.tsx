@@ -77,7 +77,7 @@ export function RouletteGame({ config }: { config: BaseGameConfig }) {
     }, 100 + ticks * 15);
   };
 
-  const resolve = (num: number, totalBets: number) => {
+  const resolve = (num: number, _totalBets: number) => {
     let win = 0;
     const wins: string[] = [];
 

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useCredit } from '../context/CreditContext';
-import { playCoinSound, playClick } from '../utils/soundManager';
+import { playCoinSound } from '../utils/soundManager';
 import './CreditReloadModal.css';
 
 interface Props {

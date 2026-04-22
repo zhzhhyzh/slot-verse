@@ -7,7 +7,7 @@ import { SlotReel } from '../components/SlotReel';
 import { PaytableModal } from '../components/PaytableModal';
 import {
   playSpinStart, playReelStop, playWinSound, playNoWin,
-  playClick, startMusic, playCoinSound,
+  playClick, startMusic,
 } from '../utils/soundManager';
 // Lazy-load non-slot game components
 import { BlackjackGame } from '../games/blackjack/BlackjackGame';

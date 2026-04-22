@@ -2,7 +2,7 @@ import { useState, useRef, useCallback, useEffect } from 'react';
 import type { BaseGameConfig } from '../../utils/gameTypes';
 import { useCredit } from '../../context/CreditContext';
 import { createDeck, shuffleDeck, type Card, type Suit, SUIT_SYMBOLS, SUIT_COLORS, rankOrder } from '../../utils/cardDeck';
-import { playCardDeal, playCardFlip, playSmallWin, playMediumWin, playNoWin, playClick } from '../../utils/soundManager';
+import { playCardDeal, playCardFlip, playSmallWin, playMediumWin, playClick } from '../../utils/soundManager';
 import '../../styles/casino-shared.css';
 
 type Phase = 'betting' | 'playing' | 'result';

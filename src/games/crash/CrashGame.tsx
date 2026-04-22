@@ -19,8 +19,8 @@ export function CrashGame({ config }: { config: BaseGameConfig }) {
   const [bet, setBet] = useState(config.minBet);
   const [betInput, setBetInput] = useState(String(config.minBet));
   const [multiplier, setMultiplier] = useState(1.0);
-  const [crashPoint, setCrashPoint] = useState(0);
-  const [cashedAt, setCashedAt] = useState(0);
+  const [, setCrashPoint] = useState(0);
+  const [, setCashedAt] = useState(0);
   const [result, setResult] = useState('');
   const [winAmount, setWinAmount] = useState(0);
   const [history, setHistory] = useState<number[]>([]);
