@@ -6,7 +6,7 @@ import { GamePage } from './pages/GamePage';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <CreditProvider>
         <Header />
         <Routes>
